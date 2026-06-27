@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Button } from './components/ui/button';
+import keyIcon from './assets/key.png';
 import closedChest from './assets/treasure_closed.png';
 import treasureChest from './assets/treasure_opened.png';
 import skeletonChest from './assets/treasure_opened_skeleton.png';
@@ -100,7 +101,8 @@ export default function App() {
             {boxes.map((box) => (
               <motion.div
                 key={box.id}
-                className="flex flex-col items-center cursor-pointer"
+                className="flex flex-col items-center"
+                style={{ cursor: box.isOpen ? 'default' : `url(${keyIcon}) 16 16, pointer` }}
                 whileHover={{ scale: box.isOpen ? 1 : 1.05 }}
                 whileTap={{ scale: box.isOpen ? 1 : 0.95 }}
                 onClick={() => openBox(box.id)}
