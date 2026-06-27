@@ -79,11 +79,20 @@ export default function App() {
       </div>
 
       <div className="mb-8">
-        <div className="text-2xl text-center p-4 bg-amber-200/80 backdrop-blur-sm rounded-lg shadow-lg border-2 border-amber-400">
+        <div className="text-2xl text-center p-4 bg-amber-200/80 backdrop-blur-sm rounded-lg shadow-lg border-2 border-amber-400 flex items-center justify-center gap-4">
           <span className="text-amber-900">Current Score: </span>
           <span className={`${score >= 0 ? 'text-green-600' : 'text-red-600'}`}>
             ${score}
           </span>
+          {gameEnded && (
+            <span className={`text-xl font-bold px-3 py-1 rounded-lg ${
+              score > 0 ? 'bg-green-100 text-green-700 border border-green-400' :
+              score === 0 ? 'bg-gray-100 text-gray-600 border border-gray-400' :
+              'bg-red-100 text-red-700 border border-red-400'
+            }`}>
+              {score > 0 ? '贏' : score === 0 ? '平' : '輸'}
+            </span>
+          )}
         </div>
       </div>
 
