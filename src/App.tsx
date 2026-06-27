@@ -39,7 +39,9 @@ export default function App() {
 
   const openBox = (boxId: number) => {
     if (gameEnded) return;
-    
+
+    new Audio(chestOpenSound).play();
+
     setBoxes(prevBoxes => {
       const updatedBoxes = prevBoxes.map(box => {
         if (box.id === boxId && !box.isOpen) {
