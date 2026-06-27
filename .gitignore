@@ -140,4 +140,11 @@ vite.config.ts.timestamp-*
 
 build/
 */.DS_Store
+.DS_Store
 .vercel/
+
+# Vite cache
+.vite/
+
+# SQLite database
+backend/game.db
